@@ -1,0 +1,22 @@
+{% assign collection = collections.testimonials %}
+<div class="bg" style="background-image:url({{ collection.image.src | img_url: 'master' }})">
+  <div class="overlay text-center">
+    <div class="container">
+      <div class="section-title center">
+        {{collection.description}}
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="testimonial" class="owl-carousel owl-theme">
+            {% for product in collection.products %}
+              <div class="item">
+                {{ product.description }}
+              </div>
+            {% endfor %}
+      		</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

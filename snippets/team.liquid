@@ -1,0 +1,32 @@
+<div class="overlay text-center">
+  <div class="container">
+    <div class="section-title center">
+      {{collections.team.description}}
+    </div>
+
+    <div id="team" class="owl-carousel owl-theme row">
+
+      {% for product in collections.team.products %}
+      <div class="item">
+        <div class="thumbnail">
+          {% if product.images.size > 0 %}       
+          {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+          {% if settings.enable_product_image_zoom %}
+          <img class="img-circle team-img" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" />
+          {% else %}
+          <img class="img-circle team-img" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" />
+          {% endif %}
+          {% else %}
+          <img class="img-circle team-img" src="{{ 'No_Image_2.png' | asset_url }}" />
+          {% endif %}
+          <div class="caption">
+            <h3>{{product.title }}</h3>
+            {{ product.content }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

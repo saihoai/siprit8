@@ -1,0 +1,8 @@
+{% assign collection = collections.home %}
+<div class="bg text-center" style="background-image:url({{ collection.image.src | img_url: 'master' }})">
+  <div class="overlay">
+    <div class="content">
+      {{ collection.description }}
+    </div>
+  </div>
+</div>
